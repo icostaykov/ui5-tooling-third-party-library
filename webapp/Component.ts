@@ -1,6 +1,7 @@
 import UIComponent from "sap/ui/core/UIComponent";
 import models from "./model/models";
 import Device from "sap/ui/Device";
+import { jsPDF } from "jspdf";
 
 /**
  * @namespace com.myorg.myapp
@@ -15,6 +16,11 @@ export default class Component extends UIComponent {
 	public init(): void {
 		// call the base component's init function
 		super.init();
+
+		const doc = new jsPDF();
+
+		doc.text("Hello world!", 10, 10);
+		doc.save("a4.pdf");
 
 		// create the device model
 		this.setModel(models.createDeviceModel(), "device");

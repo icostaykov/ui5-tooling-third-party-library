@@ -23,6 +23,9 @@
 	},
 
 	"sap.ui5": {
+		"resourceRoots": {
+      "jspdf": "resources/jspdf"
+		},
 		"rootView": {
 			"viewName": "com.myorg.myapp.view.App",
 			"type": "XML",
