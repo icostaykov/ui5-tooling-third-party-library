@@ -1,7 +1,8 @@
 import UIComponent from "sap/ui/core/UIComponent";
 import models from "./model/models";
 import Device from "sap/ui/Device";
-import { jsPDF } from "jspdf";
+// import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 /**
  * @namespace com.myorg.myapp
@@ -17,10 +18,20 @@ export default class Component extends UIComponent {
 		// call the base component's init function
 		super.init();
 
-		const doc = new jsPDF();
+		html2canvas(document.body).then((canvas) => {
+			// Export the canvas to its data URI representation
+			const base64image = canvas.toDataURL("image/png");
 
-		doc.text("Hello world!", 10, 10);
-		doc.save("a4.pdf");
+			// Open the image in a new window
+			window.open(base64image, "_blank");
+		}).catch((err) => {
+			console.log(err);
+		});
+
+		// const doc = new jsPDF();
+
+		// doc.text("Hello world!", 10, 10);
+		// doc.save("a4.pdf");
 
 		// create the device model
 		this.setModel(models.createDeviceModel(), "device");

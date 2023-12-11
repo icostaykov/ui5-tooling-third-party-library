@@ -24,7 +24,8 @@
 
 	"sap.ui5": {
 		"resourceRoots": {
-      "jspdf": "resources/jspdf"
+      "jspdf": "resources/jspdf",
+			"html2canvas": "resources/html2canvas"
 		},
 		"rootView": {
 			"viewName": "com.myorg.myapp.view.App",
